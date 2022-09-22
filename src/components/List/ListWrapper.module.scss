@@ -1,0 +1,10 @@
+@use 'utils/' as *;
+
+.wrapper {
+    width: 60vw;
+    margin: rem(60) auto 0;
+
+    .accounts {
+        list-style-type: none;
+    }
+}

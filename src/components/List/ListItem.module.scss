@@ -1,0 +1,41 @@
+@use 'utils/' as *;
+
+.item {
+    position: relative;
+    display: flex;
+    padding: rem(20);
+    align-items: center;
+
+    @include keyframes(list-in) {
+        0% {
+            opacity: 0;
+            top: rem(28)
+        }
+
+        100% {
+            opacity: 1;
+            top: 0;
+        }
+    }
+
+
+    @include animate(list-in, .4s, ease-in, 1);
+
+    .image {
+        width: rem(160);
+        height: rem(160);
+        border-radius: 30%;
+        margin-right: rem(24);
+    }
+
+    .imageNone {
+        @extend .image;
+        background-color: aquamarine;
+        flex-shrink: 0;
+    }
+
+    .description {
+        margin: rem(16) auto rem(12);
+        font-family: sans-serif;
+    }
+}

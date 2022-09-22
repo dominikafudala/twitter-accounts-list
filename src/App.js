@@ -1,10 +1,10 @@
+import ListWrapper from "components/List/ListWrapper";
 import React from "react";
-import './app.module.scss';
-import Setup from 'components/Setup/Setup'
+import './App.module.scss';
 
 const App = () => (
     <div>
-        <Setup />
+        <ListWrapper />
     </div>
 )
 

@@ -1,0 +1,8 @@
+@use 'utils/' as *;
+
+.title {
+    font-family: sans-serif;
+    font-size: rem(28);
+    text-transform: uppercase;
+    color: rgb(34, 78, 104);
+}
