@@ -1,0 +1,19 @@
+@use 'utils/' as *;
+
+.wrapper {
+    width: fit-content;
+    margin: rem(60) auto rem(40);
+
+    text-align: center;
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .inputWrapper {
+            width: 100%;
+            margin: rem(40) 0 rem(32);
+        }
+    }
+}

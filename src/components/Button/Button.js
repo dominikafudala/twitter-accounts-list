@@ -16,6 +16,7 @@ const Button = ({children, href}) => (
         ) :(
         <button
         className={styles.button}
+        type = "submit"
         >
             {children}
         </button>
