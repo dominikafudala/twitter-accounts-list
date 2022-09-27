@@ -1,5 +1,5 @@
-@use 'utils/' as *;
-@use 'globals/' as *;
+@use 'styles/utils/' as *;
+@use 'styles/globals/' as *;
 
 
 .formItem {
@@ -15,6 +15,8 @@
         font-family: sans-serif;
         font-size: rem(13);
         transition: .1s linear;
+        color: $gray;
+        font-weight: bold;
     }
 
     .input {
@@ -23,6 +25,7 @@
         border: none;
         border-bottom: rem(3) solid $gray;
         transition: border-bottom .1s ease-in-out;
+        padding-left: rem(8);
     }
 
     .textarea {
@@ -30,6 +33,7 @@
 
         resize: none;
         min-height: rem(140);
+        font-family: sans-serif;
     }
 
 
@@ -43,11 +47,15 @@
     .textarea:focus+.label {
         transform: translateY(- rem(28));
         font-size: rem(10);
+        font-weight: normal;
+        color: $dark-blue;
     }
 
     .input:not(:placeholder-shown)+.label,
     .textarea:not(:placeholder-shown)+.label {
         transform: translateY(- rem(28));
         font-size: rem(10);
+        font-weight: normal;
+        color: $dark-blue;
     }
 }

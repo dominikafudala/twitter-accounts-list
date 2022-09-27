@@ -2,7 +2,7 @@ import ListWrapper from "components/List/ListWrapper";
 import Form from "components/Form/Form";
 import React from "react";
 import { twitterAccounts } from "data/twitterAccounts";
-import './App.module.scss';
+import './Root.module.scss';
 import { useState } from "react";
 
 const App = () => {
