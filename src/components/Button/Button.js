@@ -1,8 +1,11 @@
 import React from "react";
 import styles from './Button.module.scss';
 
-const Button = ({children, href}) => (
-    <>
+const Button = ({children, href, secondary, ...props}) => {
+    const buttonClass = secondary ? styles.secondary : styles.button;
+
+    return (
+        <>
         {
         href ? 
         (
@@ -15,8 +18,9 @@ const Button = ({children, href}) => (
         </a>
         ) :(
         <button
-        className={styles.button}
+        className={buttonClass}
         type = "submit"
+        {...props}
         >
             {children}
         </button>
@@ -24,5 +28,6 @@ const Button = ({children, href}) => (
         }
     </>
     )
+}
 
 export default Button;

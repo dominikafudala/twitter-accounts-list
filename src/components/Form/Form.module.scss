@@ -1,8 +1,11 @@
 @use 'styles/utils/' as *;
 
 .wrapper {
-    width: fit-content;
-    margin: rem(60) auto rem(40);
+    width: 74%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     text-align: center;
 

@@ -1,0 +1,21 @@
+@use 'styles/utils/' as *;
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: [logo]200px 1fr [links]400px 1fr [button]200px;
+    justify-items: center;
+    align-items: center;
+
+    .logoWrapper {
+        grid-area: logo;
+    }
+
+    Nav {
+        grid-area: links;
+    }
+
+    Button {
+        grid-area: button;
+    }
+}
