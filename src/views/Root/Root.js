@@ -9,19 +9,19 @@ import Modal from 'components/Modal/Modal';
 
 
 const Root = () => {
-    const [state, setState] = useState(
+    const [modal, setModal] = useState(
         {
             isModalOpen: false,
         }
     );
 
-    const openModal = () => setState(
+    const openModal = () => setModal(
         {
             isModalOpen: true
         }
     );
 
-    const closeModal = () => setState(
+    const closeModal = () => setModal(
         {
             isModalOpen: false
         }
@@ -37,7 +37,7 @@ const Root = () => {
                 <Route path='/notes' element = {<NotesView/>}></Route>
                 <Route path='/articles' element = {<ArticlesView/>}></Route>
             </Routes>
-            {state.isModalOpen && <Modal closeModalFn = {closeModal}/>}
+            {modal.isModalOpen && <Modal closeModalFn = {closeModal}/>}
         </>
         </BrowserRouter>
     )

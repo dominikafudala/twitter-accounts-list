@@ -1,0 +1,22 @@
+@use 'styles/utils/' as *;
+@use 'styles/globals/' as *;
+
+.radio {
+
+    display: inline-flex;
+    align-items: center;
+    margin-right: rem(20);
+
+    .input {
+        accent-color: $dark-blue;
+    }
+
+    .input:checked+.radioLabel {
+        font-weight: bold;
+        color: $dark-blue;
+    }
+
+    .radioLabel {
+        margin-left: rem(4);
+    }
+}

@@ -9,6 +9,10 @@
 
     text-align: center;
 
+    .options {
+        margin-top: rem(20);
+    }
+
     .form {
         display: flex;
         flex-direction: column;
@@ -16,7 +20,7 @@
 
         .inputWrapper {
             width: 100%;
-            margin: rem(40) 0 rem(32);
+            margin: rem(20) 0 rem(32);
         }
     }
 }
