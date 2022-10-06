@@ -47,16 +47,27 @@ const Form = ({submitFn}) => {
                 <div className={styles.inputWrapper}>
                     <Input
                         name="name"
-                        label = "Name"
+                        label = {option.optionActive === TYPES.twitter ? "Name" : "Title"}
                     />
-                    <Input
-                        name="link"
-                        label="Twitter link"                
-                    />
-                    <Input
-                        name="image"
-                        label="Image link"                
-                    />
+
+                    {
+                        option.optionActive !== TYPES.note ?
+                        <Input
+                            name="link"
+                            label={option.optionActive === TYPES.twitter ? "Twitter link" : "Link"}               
+                        /> :
+                        null
+                    }
+
+                    {
+                        option.optionActive === TYPES.twitter ?
+                        <Input
+                            name="image"
+                            label="Image link"                
+                        /> :
+                        null
+                    }
+                    
                     <Input
                         tag="textarea"
                         name="description"
