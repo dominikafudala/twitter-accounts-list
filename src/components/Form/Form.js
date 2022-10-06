@@ -4,6 +4,8 @@ import Radio from "components/Form/Radio";
 import Title from "components/Title/Title";
 import {React, useState} from "react";
 import styles from './Form.module.scss';
+import AppContext from "context";
+import { useContext } from "react";
 
 const TYPES = {
     twitter: 'twitter',
@@ -17,61 +19,82 @@ const DESCRIPTIONS = {
     note: 'note'
 }
 
-const Form = ({submitFn}) => {
+const Form = () => {
 
-    const [option, setOption] = useState({
-        optionActive: TYPES.twitter
+    const [state, setState] = useState({
+        type: TYPES.twitter,
+        title: "",
+        link: "",
+        image: "",
+        description: "",
     })
+
+    const context = useContext(AppContext);
+
+    const handleInputChange = e => {
+        setState(prevState => ({
+            ...prevState,            
+            [e.target.name]: e.target.value
+        }));
+    }
 
     return (
         <section className={styles.wrapper}>
-            <Title>Add new {DESCRIPTIONS[option.optionActive]}</Title>
-            <form className={styles.form} onSubmit = {submitFn} >
+            <Title>Add new {DESCRIPTIONS[state.type]}</Title>
+            <form className={styles.form} onSubmit = {context.addItem} >
                 <div className={styles.options}>
                     <Radio
                         type={TYPES.twitter}
-                        isChecked = {option.optionActive === TYPES.twitter}
-                        onChangeFn = {() => setOption({optionActive: TYPES.twitter})}
+                        isChecked = {state.type === TYPES.twitter}
+                        onChangeFn = {() => setState(prevState => ({...prevState, type: TYPES.twitter}))}
                     />
                     <Radio
                         type={TYPES.article}
-                        isChecked = {option.optionActive === TYPES.article}
-                        onChangeFn = {() => setOption({optionActive: TYPES.article})}
+                        isChecked = {state.type === TYPES.article}
+                        onChangeFn = {() => setState(prevState => ({...prevState, type: TYPES.article}))}
                     />
                     <Radio
                         type={TYPES.note}
-                        isChecked = {option.optionActive === TYPES.note}
-                        onChangeFn = {() => setOption({optionActive: TYPES.note})}
+                        isChecked = {state.type === TYPES.note}
+                        onChangeFn = {() => setState(prevState => ({...prevState, type: TYPES.note}))}
                     />
                 </div>
                 <div className={styles.inputWrapper}>
                     <Input
-                        name="name"
-                        label = {option.optionActive === TYPES.twitter ? "Name" : "Title"}
+                        name="title"
+                        label = {state.type === TYPES.twitter ? "Name" : "Title"}
+                        onChange = {handleInputChange}
+                        value = {state.title}
                     />
 
                     {
-                        option.optionActive !== TYPES.note ?
+                        state.type !== TYPES.note ?
                         <Input
                             name="link"
-                            label={option.optionActive === TYPES.twitter ? "Twitter link" : "Link"}               
+                            label={state.type === TYPES.twitter ? "Twitter link" : "Link"} 
+                            onChange = {handleInputChange}   
+                            value = {state.link}           
                         /> :
                         null
                     }
 
                     {
-                        option.optionActive === TYPES.twitter ?
+                        state.type === TYPES.twitter ?
                         <Input
                             name="image"
-                            label="Image link"                
+                            label="Image link"
+                            onChange = {handleInputChange}  
+                            value = {state.image}                
                         /> :
                         null
                     }
-                    
+
                     <Input
                         tag="textarea"
                         name="description"
                         label="Description"
+                        onChange = {handleInputChange}
+                        value = {state.description}  
                     />
                 </div>
                 <Button>Submit</Button>
