@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from "./Input.module.scss";
 
 
-const Input = ({name, label, maxLength, tag: Tag, ...props}) => {
+const Input = ({name, label, tag: Tag, ...props}) => {
     return(
         <div className={styles.formItem}>
             <Tag 
@@ -12,8 +12,7 @@ const Input = ({name, label, maxLength, tag: Tag, ...props}) => {
                 id = {name} 
                 className = {Tag === "input" ? styles.input : styles.textarea} 
                 placeholder = " "
-                required = {name === "name" || name === "link"}
-                maxLength = {maxLength}
+                required = {name === "title" || name === "link"}
                 autoComplete = 'none' // in some browsers setting an invalid value to turn off auto complete
                 {...props}
             />

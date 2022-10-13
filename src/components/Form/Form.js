@@ -41,7 +41,7 @@ const Form = () => {
     return (
         <section className={styles.wrapper}>
             <Title>Add new {DESCRIPTIONS[state.type]}</Title>
-            <form className={styles.form} onSubmit = {context.addItem} >
+            <form className={styles.form} onSubmit = {(e) => context.addItem(e, state)} >
                 <div className={styles.options}>
                     <Radio
                         type={TYPES.twitter}

@@ -1,4 +1,5 @@
 @use 'styles/utils/' as *;
+@use 'styles/globals/' as *;
 
 .wrapper {
     width: 60vw;
@@ -6,5 +7,18 @@
 
     .accounts {
         list-style-type: none;
+    }
+}
+
+
+.noItems {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &Info {
+        color: gray;
+        font-size: rem(20);
     }
 }

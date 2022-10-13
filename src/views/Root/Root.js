@@ -1,6 +1,7 @@
 import { React, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './Root.module.scss';
+import { twitterAccounts } from "data/twitterAccounts";
 import AppContext from 'context';
 import TwitterView from 'views/TwitterView/TwitterView';
 import NotesView from 'views/NotesView/NotesView';
@@ -11,9 +12,9 @@ import Modal from 'components/Modal/Modal';
 
 const Root = () => {
     const [state, setState] = useState({
-        twitterAccounts: [],
-        articles: [],
-        notes: [],
+        twitter: [...twitterAccounts],
+        article: [],
+        note: [],
     });
 
     const [modal, setModal] = useState(
@@ -34,28 +35,18 @@ const Root = () => {
         }
     );
 
-    const addItem = (e) => {
+    const addItem = (e, newItem) => {
         e.preventDefault();
-        
-        console.log("Działa");
-        // const newAccount = {
-        //     name: e.target[0].value,
-        //     twitterLink: e.target[1].value,
-        //     image: e.target[2].value,
-        //     description: e.target[3].value
-        // }
 
-        // setState(prev => (
-        //     {
-        //         twitterAccounts: [...prev.twitterAccounts, newAccount]
-        //     }
-        // )
-        // );
+        setState((prevState) => ({
+            ...prevState,
+            [newItem.type]: [...prevState[newItem.type], newItem]
+        }))
 
-        // e.target.reset();
+        closeModal();
     };
 
-    const context = {addItem};
+    const context = {addItem, state};
 
 
     return(
